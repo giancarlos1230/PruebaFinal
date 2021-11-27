@@ -3,21 +3,23 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 
 
-
-
 const HomeNica = ( {navigation }) => {
-    const [user, setUser] = useState('')
 
+    const [user, setUser] = useState('')
     const [password, setPasword] = useState('')
 
     const ValUser = () =>{
-        if (user==='Kevin' && password==='123'){
+        if (user==='Giancarlos' && password==='123'){
             navigation.navigate('Lista')
         }
         else{
-            alert('Datos no correctos')
+            alert('Datos erroneos')
         }
         
+    }
+
+    const Liqui = () => {
+        navigation.navigate('Liquidacion')
 
     }
     return (
@@ -42,8 +44,8 @@ const HomeNica = ( {navigation }) => {
             />
 
             <Button
-            title="Liquidar"
-            onPress={ValUser}
+            title="Liquidacion"
+            onPress={Liqui}
             />
          </View>
 

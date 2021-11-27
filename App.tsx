@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native';
 import HomeNica from './src/screen/HomeNica';
 import List from './src/screen/List';
+import Liquidacion from './src/screen/Liquidacion';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeNica} />
         <Stack.Screen name="Lista" component={List} />
+        <Stack.Screen name="Liquidacion" component={Liquidacion} />
         </Stack.Navigator>
     </NavigationContainer>
  );
