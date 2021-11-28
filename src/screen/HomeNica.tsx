@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
+import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 
 
@@ -37,11 +37,16 @@ const HomeNica = ( {navigation }) => {
             placeholder={'Contraseña'}
             onChangeText={setPasword}
             />
-            <View style={styles.button}>
-            <Button
+            {/* <Button
             title="iniciar"
             onPress={ValUser}
-            />
+            /> */}
+            <TouchableOpacity
+                onPress={ValUser}
+                style={styles.botonReset}
+            >
+                <Text style={styles.textbotonReset}>Iniciar</Text>
+            </TouchableOpacity>
 
             <Button
             title="Liquidacion"
@@ -49,7 +54,6 @@ const HomeNica = ( {navigation }) => {
             />
          </View>
 
-        </View>
     )
 
 }
@@ -71,14 +75,26 @@ const styles = StyleSheet.create({
         fontSize:30,
         color:'#05786A'
     },
-    button:{
-        
-    },
+   
     container: {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop:'50%'
       },
+
+      botonReset: {
+        backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '30%',
+        paddingVertical: 7,
+        marginTop: 1
+    },
+    textbotonReset: {
+        color: '#00514E',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center'
+    }
 
 })

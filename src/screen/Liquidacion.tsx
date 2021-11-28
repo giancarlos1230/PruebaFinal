@@ -11,11 +11,6 @@ const Liquidacion = () => {
         const total = anio * parseInt(salario)
         setResul (total);
 
-        <Button
-  title="Go to Details... again"
-  onPress={() => navigation.push('Details')}
-/>
-
     };
 
     useEffect(calcularSalario,[salario]);
