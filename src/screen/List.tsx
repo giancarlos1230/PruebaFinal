@@ -36,14 +36,13 @@ const List = ({ navigation }) => {
                         onPress={crearTarea} />
                 </View>
                 {
-                    tareas.map(lista => (
-                        <View style={styles.container}>
+                    tareas.map((lista, index) => (
+                        <View style={styles.container} key={index} >
                             <Text style={styles.text}> {lista}</Text>
-
                             <Button
                                 color="red"
                                 title="Eliminar"
-                                onPress={() => eliminarTarea(tareas.id)} />
+                                onPress={() => eliminarTarea(index)} />
 
                         </View>
                     ))
@@ -91,8 +90,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink',
         borderRadius: 3,
         padding: 5,
-        fontSize: 8,
+        fontSize: 20,
         color: 'black',
+        width: '80%'
+
     }
 
 })
