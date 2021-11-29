@@ -13,16 +13,16 @@ const Stack = createNativeStackNavigator();
 const MainStackNavigators = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Atributo">
+      <Stack.Navigator initialRouteName="Lista">
         <Stack.Screen name="Home" component={HomeNica} />
           <Stack.Screen name="Lista" component={List}
 
           options={{
             title: 'Lista de Tareas',
             headerStyle: {
-              backgroundColor: '#C4C4C4',
+              backgroundColor: 'skyblue',
             },
-            headerTintColor: '#fff',
+            headerTintColor: 'white',
             headerTitleStyle: {
               fontWeight: 'bold',
             },

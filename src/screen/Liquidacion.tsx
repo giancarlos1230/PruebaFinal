@@ -36,15 +36,12 @@ const styles = StyleSheet.create({
     text:{
     marginTop:'20%'
     },
+
     inputs:{
         borderRadius:5,
         padding: 15,
         fontSize: 20,
         backgroundColor: 'pink',
-
-
-
-
     }
 
 })

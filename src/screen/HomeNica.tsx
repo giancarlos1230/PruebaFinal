@@ -9,7 +9,7 @@ const HomeNica = ( {navigation }) => {
     const [password, setPasword] = useState('')
 
     const ValUser = () =>{
-        if (user==='Giancarlos' && password==='123'){
+        if (user==='Gianca' && password==='123'){
             navigation.navigate('Lista')
         }
         else{
@@ -37,6 +37,8 @@ const HomeNica = ( {navigation }) => {
             placeholder={'Contraseña'}
             onChangeText={setPasword}
             />
+
+
             {/* <Button
             title="iniciar"
             onPress={ValUser}

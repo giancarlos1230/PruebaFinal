@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import FormInput from '../Components/FormInput';
 
 const NicaAtributos = () => {
 
@@ -22,30 +23,25 @@ const NicaAtributos = () => {
     return (
         <ScrollView>
         <View style={styles.container}>
-            <Text style={styles.text}>Producto</Text>
-            <TextInput
-                style={styles.inputs}
-                placeholder={'Ingresar producto'}
-                onChangeText={setProducto}
-            />
-
-            <Text style={styles.text}> cantidad </Text>
-            <TextInput
-                style={styles.inputs}
+        <FormInput
+        title={"Nombre Producto"}
+        placeholder={"'Ingresar producto"}
+        onChangeText={setProducto}
+        />
+            <FormInput
+                title={"Nombre cantidad"}
                 placeholder={'Ingresar cantidad'}
                 onChangeText={setCantidad}
             />
 
-            <Text style={styles.text}> precio </Text>
-            <TextInput
-                style={styles.inputs}
-                placeholder={'Ingresar precio'}
+                <FormInput
+                title={"Nombre Precio"}
+                placeholder={'Ingresar Precio'}
                 onChangeText={setPrecio}
             />
 
-            <Text style={styles.text}> Descuento </Text>
-            <TextInput
-                style={styles.inputs}
+            <FormInput
+                title={"Nombre Descuento"}
                 placeholder={'Descuento'}
                 onChangeText={setDescuento}
             />

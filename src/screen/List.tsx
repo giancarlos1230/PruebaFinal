@@ -1,54 +1,60 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { ScreenContainer } from 'react-native-screens';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
 
 const List = ({ navigation }) => {
 
-    const [usuarios, setUsuarios] = useState([
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-        },
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-        },
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-        },
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-        },
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-        }
+    const [tarea, setTarea] = useState<string>('')
+    const [tareas, setTareas] = useState<string[]>([])
 
-    ])
 
-    const eliminarLista = () => {
-        alert("Seguro que quieres eliminar la lista")
+    const crearTarea = () => {
+        setTareas([...tareas, tarea])
     }
 
-    const editarLista = () => {
-        alert("Jelouda")
+    const getTareas = () => {
+        setTareas([...tareas,])
     }
+
+
+    const eliminarTarea = (id: number) => {
+        tareas.splice(id, 1)
+        getTareas()
+    }
+
     return (
-        <View>
-            {
-                usuarios.map(lista => (
-                    <View style={styles.container}>
-                    <Text style={styles.text} key={lista.id}>{lista.name}</Text>
+        <View style={styles.containerBase}>
+            <ScrollView>
 
-                    <Button color="#B52222" title="Eliminar" onPress={eliminarLista} />
+                <View style={styles.container}>
+                    <TextInput
+                        style={styles.inputs}
+                        onChangeText={setTarea}
+                    />
+                    <Button
+                        color="green"
+                        title="Agregar"
+                        onPress={crearTarea} />
+                </View>
+                {
+                    tareas.map(lista => (
+                        <View style={styles.container}>
+                            <Text style={styles.text}> {lista}</Text>
 
-                    {/* <Button title="Editar" onPress={editarLista} /> */}
+                            <Button
+                                color="red"
+                                title="Eliminar"
+                                onPress={() => eliminarTarea(tareas.id)} />
 
-                    </View>
-                ))
-            }
+                        </View>
+                    ))
+                }
+                {/* <View style={{ marginHorizontal: '40%', paddingVertical: 30, }}
+            >
+                <Button
+                    title="Ver Datos"
+                    onPress={getUser} />
+            </View> */}
+            </ScrollView>
         </View>
     )
 }
@@ -58,23 +64,35 @@ export default List
 const styles = StyleSheet.create({
 
     container: {
-
-        width: '90%',
-        left: '5%',
+        width: '95%',
+        backgroundColor: 'black',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#FFFFFF',
-        marginBottom:10,
+        marginBottom: 10,
         paddingVertical: 10,
-        paddingHorizontal: 5,
+        paddingHorizontal: 8,
         borderRadius: 10,
+        marginLeft: 10,
+        borderWidth: 2,
+        borderColor: 'white',
+        marginTop: 10,
 
-        borderWidth: 3,
-        borderColor: '#05786A'
     },
     text: {
         fontSize: 20,
-        color: '#22B5A3'
-    }
-})
+        color: 'yellow'
+    },
+    containerBase: {
+        flex: 1,
+        backgroundColor: 'gray',
 
+    },
+    inputs: {
+        backgroundColor: 'pink',
+        borderRadius: 3,
+        padding: 5,
+        fontSize: 8,
+        color: 'black',
+    }
+
+})
