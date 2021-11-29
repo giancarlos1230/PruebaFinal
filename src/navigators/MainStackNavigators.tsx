@@ -5,6 +5,7 @@ import HomeNica from '../screen/HomeNica';
 import List from '../screen/List';
 import Liquidacion from '../screen/Liquidacion';
 import NicaAtributos from '../screen/NicaAtributos';
+import ListKey from '../screen/ListKey';
 
 
 const Stack = createNativeStackNavigator();
@@ -13,8 +14,10 @@ const Stack = createNativeStackNavigator();
 const MainStackNavigators = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Lista">
+      <Stack.Navigator initialRouteName="listkey">
         <Stack.Screen name="Home" component={HomeNica} />
+        <Stack.Screen name="listkey" component={ListKey} />
+
           <Stack.Screen name="Lista" component={List}
 
           options={{
