@@ -1,60 +1,52 @@
-import React,{useState} from 'react'
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
+const logo = {
+    uri: "https://yt3.ggpht.com/ytc/AKedOLSYvgmOToFUEK_D_0oNLY7E83b4-bqzLzZXev_70Q=s900-c-k-c0x00ffffff-no-rj",
+};
 
-const HomeNica = ( {navigation }) => {
-
+const HomeNica = ({ navigation }) => {
     const [user, setUser] = useState('')
     const [password, setPasword] = useState('')
 
-    const ValUser = () =>{
-        if (user==='Gianca' && password==='123'){
-            navigation.navigate('Lista')
+    const ValUser = () => {
+        if (user === 'Gianca' && password === '123') {
+            navigation.navigate('Menu')
         }
-        else{
+        else {
             alert('Datos erroneos')
         }
-        
     }
 
-    const Liqui = () => {
-        navigation.navigate('Liquidacion')
-
-    }
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Usuario</Text>
-            <TextInput
-            style={styles.inputs}
-            placeholder={'Ingrese su usuario'}
-            onChangeText={setUser}
+            <View style={styles.logoheader}>
+                <Image style={styles.logo} source={logo} />
+            </View>
+            <ScrollView>
+                <Text>Usuario</Text>
+                <TextInput
+                    style={styles.inputs}
+                    placeholder={'Ingrese su usuario'}
+                    onChangeText={setUser}
 
-            />
-            <Text style={styles.text}>Contraseña</Text>
-            <TextInput
-            style={styles.inputs}
-            placeholder={'Contraseña'}
-            onChangeText={setPasword}
-            />
+                />
+                <Text>Contraseña</Text>
+                <TextInput
+                    style={styles.inputs}
+                    placeholder={'Contraseña'}
+                    onChangeText={setPasword}
+                />
 
-
-            {/* <Button
-            title="iniciar"
-            onPress={ValUser}
-            /> */}
-            <TouchableOpacity
-                onPress={ValUser}
-                style={styles.botonReset}
-            >
-                <Text style={styles.textbotonReset}>Iniciar</Text>
-            </TouchableOpacity>
-
-            <Button
-            title="Liquidacion"
-            onPress={Liqui}
-            />
-         </View>
+                <TouchableOpacity
+                    onPress={ValUser}
+                    style={styles.botonReset}
+                >
+                    <Text style={styles.textbotonReset}>Iniciar</Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </View>
 
     )
 
@@ -71,32 +63,41 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: '#004445',
-        
     },
-    text:{
-        fontSize:30,
-        color:'#05786A'
-    },
-   
-    container: {
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop:'50%'
-      },
 
       botonReset: {
+        marginHorizontal: '35%',
         backgroundColor: '#00C1AC',
-        borderRadius: 8,
+        borderRadius: 30,
         width: '30%',
         paddingVertical: 7,
-        marginTop: 1
+        marginTop: 20
     },
+
     textbotonReset: {
         color: '#00514E',
         fontWeight: 'bold',
         fontSize: 35,
         textAlign: 'center'
-    }
+    },
 
-})
+
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        marginHorizontal: 20,
+        marginTop: "20%",
+    },
+
+
+    logo:{ 
+        borderRadius: 100,
+        width: 200,
+        height: 200, 
+      },
+
+        logoheader:{
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+});

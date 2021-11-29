@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeNica from '../screen/HomeNica';
 import List from '../screen/List';
-import Liquidacion from '../screen/Liquidacion';
 import NicaAtributos from '../screen/NicaAtributos';
 import ListKey from '../screen/ListKey';
+import Menu from '../screen/Menu';
 
 
 const Stack = createNativeStackNavigator();
@@ -15,9 +15,9 @@ const MainStackNavigators = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Home" component={HomeNica} />
-        <Stack.Screen name="listkey" component={ListKey} />
-
+        <Stack.Screen name="Listkey" component={ListKey} />
           <Stack.Screen name="Lista" component={List}
 
           options={{
@@ -32,7 +32,6 @@ const MainStackNavigators = () => {
           }}
         />
 
-        <Stack.Screen name="Liquidacion" component={Liquidacion} />
         <Stack.Screen name="Atributo" component={NicaAtributos} 
 
             options={{

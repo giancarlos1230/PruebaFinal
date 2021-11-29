@@ -47,12 +47,7 @@ const List = ({ navigation }) => {
                         </View>
                     ))
                 }
-                {/* <View style={{ marginHorizontal: '40%', paddingVertical: 30, }}
-            >
-                <Button
-                    title="Ver Datos"
-                    onPress={getUser} />
-            </View> */}
+                
             </ScrollView>
         </View>
     )
